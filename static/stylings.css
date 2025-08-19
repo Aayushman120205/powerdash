@@ -1,0 +1,17 @@
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    border: 1px black solid;
+    padding: 25px;
+    width: 40vw;
+    border-radius: 15px;
+}
+body{
+    display: flex;
+    justify-content: center;
+}
+
+

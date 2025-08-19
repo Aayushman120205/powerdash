@@ -1,0 +1,106 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Dashboard</title>
+    <link rel="stylesheet" href="{%static 'styles.css'%}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+    <script src="{%static 'scripts.js'%}" defer></script>
+</head>
+<body>
+    <div class="grid">
+        <div class="dashboard">
+            <div class="cards" id="Card1" style="color: white; font-weight: bold;">
+                <div class="overlay">
+                    <a href="/dashboard/edit/">
+                    <img src="{%static 'EditImage.jpg'%}" alt="Edit id" class="pencil">
+                    </a>
+                </div>
+                <p class="Name" id="1">Temperature</p>
+                <p class="input" id="temp-value">... °C</p>
+            </div>
+            <div class="cards" id="Card2">
+                <div class="overlay">
+                    <a href="/dashboard/edit/">
+                    <img src="{%static 'EditImage.jpg'%}" alt="Edit id" class="pencil">
+                    </a>
+                </div>
+                <p class="Name" id="2">Humidity</p>
+                <p class="input" id="humidity-value">... g/m&sup3</p>
+            </div>
+            <div class="cards" id="Card3">
+                <div class="overlay">
+                    <a href="/dashboard/edit/">
+                    <img src="{%static 'EditImage.jpg'%}" alt="Edit id" class="pencil">
+                    </a>
+                </div>
+                <p class="Name" id="3">Voltage</p>
+                <p class="input" id="voltage-value">... V</p>
+            </div>
+            <div class="cards" id="Card4" style="color: white; font-weight: bold;">
+                <div class="overlay">
+                    <a href="/dashboard/edit/">
+                    <img src="{%static 'EditImage.jpg'%}" alt="Edit id" class="pencil">
+                    </a>
+                </div>
+                <p class="Name" id="4">Current</p>
+                <p class="input" id="current-value">... A</p>
+            </div>
+        </div>
+        <div class="graph-analysis">
+            <div class="graphBox" id="G1">
+                <div class="over">
+                    <a href="/dashboard/edit/">
+                    <img src="{%static 'EditImage.jpg'%}" alt="Edit id2" class="pencil2">
+                    </a>
+                </div>
+                <canvas id="myChart" class="graph"></canvas>
+            </div>
+            <div class="graphBox" id="G2">
+                <div class="over">
+                    <a href="/dashboard/edit/">
+                    <img src="{%static 'EditImage.jpg'%}" alt="Edit id2" class="pencil2">
+                    </a>
+                </div>
+                <canvas id="myCharting" class="graph"></canvas>
+            </div>
+        </div>
+        <div class="pieChart-analysis">
+            <div class="pieChart" id="chart1">
+                <div class="overrapping">
+                    <a href="/dashboard/edit/">
+                    <img src="{%static 'EditImage.jpg'%}" alt="Edit id3" class="pencil3">
+                    </a>
+                </div>
+                <canvas id="p1"class="pie"></canvas>
+            </div>
+            <div class="pieChart" id="chart2">
+                <div class="overrapping">
+                    <a href="/dashboard/edit/">
+                    <img src="{%static 'EditImage.jpg'%}" alt="Edit id3" class="pencil3">
+                    </a>
+                </div>
+                <canvas id="p2" class="pie"></canvas>
+            </div>
+            <div class="pieChart" id="chart3">
+                <div class="overrapping">
+                    <a href="/dashboard/edit/" >
+                    <img src="{%static 'EditImage.jpg'%}" alt="Edit id3" class="pencil3">
+                    </a>
+                </div>
+                <canvas id="p3" class="pie" ></canvas>
+            </div>  
+            <div class="pieChart" id="chart4">
+                <div class="overrapping">
+                    <a href="/dashboard/edit/">
+                    <img src="{%static 'EditImage.jpg'%}" alt="Edit id3" class="pencil3">
+                    </a>
+                </div>
+                <canvas id="p4"class="pie"></canvas>
+            </div>          
+        </div>
+    </div>
+</body>
+</html>
