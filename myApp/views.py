@@ -6,7 +6,8 @@ from django.conf import settings
 import mimetypes
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
+from django.core.validators import validate_email
+from django.core.exceptions import ValidationError
 
 from .serializers import (
     CardSerializer, TemperatureSerializer, HumiditySerializer,
@@ -40,6 +41,15 @@ def email_form_page(request):
 def send_image_email(request):
     if request.method == 'POST':
         image = request.FILES.get('file')
+        to_email = request.POST.get('to')
+
+        if not to_email:
+            return JsonResponse({'error': 'Recipient email is required.'}, status=400)
+
+        try:
+            validate_email(to_email)  # Django built-in email validator
+        except ValidationError:
+            return JsonResponse({'error': 'Invalid recipient email address.'}, status=400)
 
         if not image:
             return JsonResponse({'error': 'Please select an image.'}, status=400)
@@ -56,7 +66,7 @@ def send_image_email(request):
                 subject='Photo Attachment from Webpage',
                 body='This is an automated email with a photo attachment.',
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                to=['shreshtha0311@gmail.com'],
+                to=[to_email],
             )
             email.attach(image.name, image.read(), mime_type)
             email.send()

@@ -3,6 +3,7 @@ document.getElementById('emailForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const from = document.getElementById('from').value;
+    const to = document.getElementById('to').value.trim();
     const file = document.getElementById('file').files[0];
     const status = document.getElementById('status');
 
@@ -30,6 +31,7 @@ document.getElementById('emailForm').addEventListener('submit', async (e) => {
 
     const formData = new FormData();
     formData.append('from', from);
+    formData.append('to', to);
     formData.append('file', file);
 
     try {
